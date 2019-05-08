@@ -4,10 +4,10 @@
   "description": "Some useful React Hooks",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "babel --ignore 'src/**/*.test.js' src --out-dir dist",
     "prepublish": "npm run build",
     "prettier": "npx prettier --write './src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,12 +26,15 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
-    "@babel/plugin-check-constants": "^7.0.0-beta.38",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
-    "prettier": "^1.17.0"
+    "jest": "^24.8.0",
+    "prettier": "^1.17.0",
+    "react": "^16.8.0",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-test-renderer": "^16.8.0"
   },
   "peerDependencies": {
     "react": "^16.8.0"
