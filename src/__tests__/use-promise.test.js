@@ -1,5 +1,5 @@
 import { renderHook, act } from 'react-hooks-testing-library';
-import usePromise from './use-promise';
+import usePromise from '../use-promise';
 
 // XXX:
 //   async tests still emit console errors
