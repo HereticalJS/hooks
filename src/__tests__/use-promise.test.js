@@ -1,47 +1,65 @@
 import { renderHook, act } from 'react-hooks-testing-library';
 import usePromise from '../use-promise';
 
-// XXX:
-//   async tests still emit console errors
-//   see: https://github.com/mpeyper/react-hooks-testing-library/issues/14
-test('should resolve a promise', async () => {
-  const p = Promise.resolve(true);
-  const { result, waitForNextUpdate } = renderHook(() => usePromise(p));
+describe('usePromise', () => {
+  // XXX:
+  //   async tests still emit console errors
+  //   see: https://github.com/mpeyper/react-hooks-testing-library/issues/14
+  test('should ignore anything but a Promise', async () => {
+    const { result, waitForNextUpdate, rerender } = renderHook(
+      p => usePromise(p),
+      { initialProps: undefined },
+    );
+    let value;
 
-  let value;
-  let error;
-  let isPending;
+    [value] = result.current;
+    expect(value).toBe(undefined);
 
-  [value, error, isPending] = result.current;
-  expect(value).toBe(undefined);
-  expect(error).toBe(undefined);
-  expect(isPending).toBe(true);
+    rerender(42);
 
-  await waitForNextUpdate();
+    [value] = result.current;
+    expect(value).toBe(undefined);
+  });
 
-  [value, error, isPending] = result.current;
-  expect(value).toBe(true);
-  expect(error).toBe(undefined);
-  expect(isPending).toBe(false);
-});
+  test('should resolve a promise', async () => {
+    const p = Promise.resolve(true);
+    const { result, waitForNextUpdate } = renderHook(() => usePromise(p));
 
-test('should reject a promise', async () => {
-  const p = Promise.reject(new Error('oops!'));
-  const { result, waitForNextUpdate } = renderHook(() => usePromise(p));
+    let value;
+    let error;
+    let isPending;
 
-  let value;
-  let error;
-  let isPending;
+    [value, error, isPending] = result.current;
+    expect(value).toBe(undefined);
+    expect(error).toBe(undefined);
+    expect(isPending).toBe(true);
 
-  [value, error, isPending] = result.current;
-  expect(value).toBe(undefined);
-  expect(error).toBe(undefined);
-  expect(isPending).toBe(true);
+    await waitForNextUpdate();
 
-  await waitForNextUpdate();
+    [value, error, isPending] = result.current;
+    expect(value).toBe(true);
+    expect(error).toBe(undefined);
+    expect(isPending).toBe(false);
+  });
 
-  [value, error, isPending] = result.current;
-  expect(value).toBe(undefined);
-  expect(error.message).toBe('oops!');
-  expect(isPending).toBe(false);
+  test('should reject a promise', async () => {
+    const p = Promise.reject(new Error('oops!'));
+    const { result, waitForNextUpdate } = renderHook(() => usePromise(p));
+
+    let value;
+    let error;
+    let isPending;
+
+    [value, error, isPending] = result.current;
+    expect(value).toBe(undefined);
+    expect(error).toBe(undefined);
+    expect(isPending).toBe(true);
+
+    await waitForNextUpdate();
+
+    [value, error, isPending] = result.current;
+    expect(value).toBe(undefined);
+    expect(error.message).toBe('oops!');
+    expect(isPending).toBe(false);
+  });
 });

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 
-export const nothing = Promise.resolve();
+function isThenable(p) {
+  return p.then && typeof p.then === 'function';
+}
 
-function usePromise(promise = nothing) {
+function usePromise(promise) {
   const [[value, error, isPending], setResult] = useState([
     undefined,
     undefined,
@@ -10,6 +12,7 @@ function usePromise(promise = nothing) {
   ]);
 
   useEffect(() => {
+    if (!promise || !isThenable(promise)) return;
     setResult([value, error, true]);
     promise.then(
       x => setResult([x, undefined, false]),
