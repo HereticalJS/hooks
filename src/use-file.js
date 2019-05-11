@@ -1,10 +1,18 @@
 import { useState, useEffect } from 'react';
 
+function isBlob(b) {
+  return (
+    b.size !== undefined &&
+    b.type !== undefined &&
+    typeof b.slice === 'function'
+  );
+}
+
 function useFile(file) {
   const [data, setData] = useState();
 
   useEffect(() => {
-    if (!file) return;
+    if (!file || !isBlob(file)) return;
 
     let reader = new FileReader();
 

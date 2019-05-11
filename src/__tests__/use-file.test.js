@@ -10,6 +10,29 @@ describe('useFile', () => {
 
   afterEach(() => DFR.clearMocks());
 
+  test('should ignore anything but a Blob', async () => {
+    const { result, waitForNextUpdate, rerender } = renderHook(
+      (b) => useFile(b),
+      { initialProps: undefined },
+    );
+
+    expect(DFR.FileReader.mock.calls.length).toBe(0);
+    expect(DFR.addEventListener.mock.calls.length).toBe(0);
+    expect(DFR.readAsArrayBuffer.mock.calls.length).toBe(0);
+
+    rerender('foobar');
+
+    expect(DFR.FileReader.mock.calls.length).toBe(0);
+    expect(DFR.addEventListener.mock.calls.length).toBe(0);
+    expect(DFR.readAsArrayBuffer.mock.calls.length).toBe(0);
+
+    rerender(42);
+
+    expect(DFR.FileReader.mock.calls.length).toBe(0);
+    expect(DFR.addEventListener.mock.calls.length).toBe(0);
+    expect(DFR.readAsArrayBuffer.mock.calls.length).toBe(0);
+  });
+
   test('should read a blob', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useFile(DFR.data[0].blob));
 
@@ -29,7 +52,7 @@ describe('useFile', () => {
   test('should cleanup when switching to a new blob', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
       (b) => useFile(b),
-      { initialProps: DFR.data[0].blob }
+      { initialProps: DFR.data[0].blob },
     );
 
     expect(result.current).toBe(undefined);

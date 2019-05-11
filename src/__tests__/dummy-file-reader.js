@@ -31,7 +31,15 @@ export let readAsArrayBuffer;
 export function init() {
   removeEventListener = jest.fn();
   dummyFileReader.removeEventListener = removeEventListener.bind(dummyFileReader);
-  readAsArrayBuffer = jest.fn();
+  readAsArrayBuffer = jest
+    .fn(b => {
+      if (b === undefined) {
+        throw new Error("Failed to execute 'readAsArrayBuffer' on 'FileReader': 1 argument required, but only 0 present.");
+      }
+      if (!(b instanceof Blob)) {
+        throw new Error("Failed to execute 'readAsArrayBuffer' on 'FileReader': parameter 1 is not of type 'Blob'.");
+      }
+    });
   dummyFileReader.readAsArrayBuffer = readAsArrayBuffer.bind(this);
   RealFileReader = window.FileReader;
   window.FileReader = FileReader = jest.fn(() => dummyFileReader);
