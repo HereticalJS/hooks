@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
  * It also take a lot of spaces if you are not watching. XD
  */
 function useSpace(state) {
-  const [states, setStates] = useState([state]);
+  const [states, setStates] = useState([]);
 
   useEffect(() => {
     setStates([...states, state]);
