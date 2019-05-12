@@ -6,3 +6,4 @@ export useRange from './use-range';
 export useFile from './use-file';
 export useObjectURL from './use-object-url';
 export useImageFile from './use-image-file';
+export useSpace from './use-space';
