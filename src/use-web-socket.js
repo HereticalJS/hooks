@@ -28,7 +28,7 @@ function useWebSocket(url) {
 
   useEffect(() => {
     if (!socket) {
-      setMessages([]);
+      setMessages();
       return;
     }
 
