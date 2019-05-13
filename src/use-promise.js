@@ -12,7 +12,15 @@ function usePromise(promise) {
   ]);
 
   useEffect(() => {
-    if (!promise || !isThenable(promise)) return;
+    if (!promise) {
+      setResult([undefined, undefined, false]);
+      return;
+    }
+    if(!isThenable(promise)) {
+      setResult([promise, undefined, false]);
+      return;
+    }
+
     setResult([value, error, true]);
     promise.then(
       x => setResult([x, undefined, false]),

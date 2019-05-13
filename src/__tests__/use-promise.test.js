@@ -5,22 +5,6 @@ describe('usePromise', () => {
   // XXX:
   //   async tests still emit console errors
   //   see: https://github.com/mpeyper/react-hooks-testing-library/issues/14
-  test('should ignore anything but a Promise', async () => {
-    const { result, waitForNextUpdate, rerender } = renderHook(
-      p => usePromise(p),
-      { initialProps: undefined },
-    );
-    let value;
-
-    [value] = result.current;
-    expect(value).toBe(undefined);
-
-    rerender(42);
-
-    [value] = result.current;
-    expect(value).toBe(undefined);
-  });
-
   test('should resolve a promise', async () => {
     const p = Promise.resolve(true);
     const { result, waitForNextUpdate } = renderHook(() => usePromise(p));
@@ -61,5 +45,47 @@ describe('usePromise', () => {
     expect(value).toBe(undefined);
     expect(error.message).toBe('oops!');
     expect(isPending).toBe(false);
+  });
+
+  test('should pass anything but a Promise or an undefined', async () => {
+    const { result, waitForNextUpdate, rerender } = renderHook(
+      p => usePromise(p),
+      { initialProps: 'foobar' },
+    );
+    let value;
+
+    [value] = result.current;
+    expect(value).toBe('foobar');
+
+    rerender(42);
+
+    [value] = result.current;
+    expect(value).toBe(42);
+  });
+
+  test('should use undefined to reset result', async () => {
+    const { result, waitForNextUpdate, rerender } = renderHook(
+      p => usePromise(p),
+      { initialProps: Promise.resolve(0) },
+    );
+    let value;
+
+    [value] = result.current;
+    expect(value).toBe(undefined);
+
+    await waitForNextUpdate();
+
+    [value] = result.current;
+    expect(value).toBe(0);
+
+    rerender(Promise.resolve());
+
+    [value] = result.current;
+    expect(value).toBe(0);
+
+    await waitForNextUpdate();
+
+    [value] = result.current;
+    expect(value).toBe(undefined);
   });
 });
