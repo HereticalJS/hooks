@@ -1,9 +1,9 @@
 import { renderHook, act } from 'react-hooks-testing-library';
 import Blob from 'blob';
 import * as DFR from './dummy-file-reader';
-import useFile from '../use-file';
+import useBlob from '../use-blob';
 
-describe('useFile', () => {
+describe('useBlob', () => {
   beforeAll(() => DFR.init());
 
   beforeEach(() => DFR.prepareMocks());
@@ -12,7 +12,7 @@ describe('useFile', () => {
 
   test('should ignore anything but a Blob', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
-      (b) => useFile(b),
+      (b) => useBlob(b),
       { initialProps: undefined },
     );
 
@@ -34,7 +34,7 @@ describe('useFile', () => {
   });
 
   test('should read a blob', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useFile(DFR.data[0].blob));
+    const { result, waitForNextUpdate } = renderHook(() => useBlob(DFR.data[0].blob));
 
     expect(result.current).toBe(undefined);
 
@@ -51,7 +51,7 @@ describe('useFile', () => {
 
   test('should cleanup when switching to a new blob', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
-      (b) => useFile(b),
+      (b) => useBlob(b),
       { initialProps: DFR.data[0].blob },
     );
 
