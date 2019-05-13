@@ -29,7 +29,10 @@ function useBlob(blob, resultType = 'arraybuffer') {
   const [data, setData] = useState();
 
   useEffect(() => {
-    if (!blob || !isBlob(blob)) return;
+    if (!blob || !isBlob(blob)) {
+      setData();
+      return;
+    }
 
     let reader = new FileReader();
 
@@ -45,9 +48,11 @@ function useBlob(blob, resultType = 'arraybuffer') {
       reader.removeEventListener('load', f);
       reader = undefined;
     };
-  }, [blob]);
+  }, [blob, resultType]);
 
   return data;
 }
+
+useBlob.ResultType = ResultType;
 
 export default useBlob;

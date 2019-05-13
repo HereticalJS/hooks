@@ -10,6 +10,7 @@ npm install @caasi/hooks
 
 ## ToDo
 
-* [ ] Test
+* [x] `useBlob`
+* [ ] Write tests
+  * [ ] Test blob reset
 * [ ] `useWebSocket`
-* [ ] `useDataURL`
