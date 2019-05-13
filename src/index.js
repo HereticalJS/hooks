@@ -8,3 +8,4 @@ export useFile from './use-file';
 export useObjectURL from './use-object-url';
 export useImageFile from './use-image-file';
 export useSpace from './use-space';
+export useWebSocket from './use-web-socket';
