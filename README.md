@@ -14,3 +14,4 @@ npm install @caasi/hooks
 * [ ] Write tests
   * [ ] Test blob reset
 * [ ] `useWebSocket`
+* [ ] use `useDebugValue`
