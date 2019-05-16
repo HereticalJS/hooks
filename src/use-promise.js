@@ -14,18 +14,18 @@ function usePromise(promise) {
 
   useEffect(() => {
     if (!promise) {
-      setResult([undefined, undefined, pending]);
+      setResult(([,, pending]) => [undefined, undefined, pending]);
       return;
     }
     if(!isThenable(promise)) {
-      setResult([promise, undefined, pending]);
+      setResult(([,, pending]) => [promise, undefined, pending]);
       return;
     }
 
-    setResult([value, error, pending + 1]);
+    setResult(([value, error, pending]) => [value, error, pending + 1]);
     promise.then(
-      x => setResult([x, undefined, pending - 1]),
-      e => setResult([undefined, e, pending - 1])
+      x => setResult(([,, pending]) => [x, undefined, pending - 1]),
+      e => setResult(([,, pending]) => [undefined, e, pending - 1])
     );
   }, [promise]);
 
