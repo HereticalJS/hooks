@@ -50,7 +50,7 @@ describe('usePromise', () => {
   test('should pass anything but a Promise or an undefined', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
       p => usePromise(p),
-      { initialProps: 'foobar' },
+      { initialProps: 'foobar' }
     );
     let value;
 
@@ -66,7 +66,7 @@ describe('usePromise', () => {
   test('should use undefined to reset result', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
       p => usePromise(p),
-      { initialProps: Promise.resolve(0) },
+      { initialProps: Promise.resolve(0) }
     );
     let value;
 

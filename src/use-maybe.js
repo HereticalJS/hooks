@@ -1,16 +1,14 @@
-import { useMemo } from 'react'
+import { useMemo } from 'react';
 
 function hasUndefined(xs) {
-  return xs.reduce((acc, x) => acc || (x === undefined), false);
+  return xs.reduce((acc, x) => acc || x === undefined, false);
 }
 
 function useMaybe(dependencies, f, fallback) {
   return useMemo(
-    () => hasUndefined(dependencies)
-      ? fallback
-      : f.apply(null, dependencies),
+    () => (hasUndefined(dependencies) ? fallback : f.apply(null, dependencies)),
     dependencies
   );
 }
 
-export default useMaybe
+export default useMaybe;

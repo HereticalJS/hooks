@@ -1,12 +1,12 @@
 import { renderHook, act } from 'react-hooks-testing-library';
 import useGenerator from '../use-generator';
 
-function *gen0() {
+function* gen0() {
   yield 0;
   return 1;
 }
 
-function *gen1() {
+function* gen1() {
   yield 0;
 }
 
@@ -33,6 +33,5 @@ describe('useGenerator', () => {
     */
   });
 
-  test('should just update the yield value', async () => {
-  });
+  test('should just update the yield value', async () => {});
 });

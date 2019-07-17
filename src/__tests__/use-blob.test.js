@@ -12,8 +12,8 @@ describe('useBlob', () => {
 
   test('should ignore anything but a Blob', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
-      (b) => useBlob(b),
-      { initialProps: undefined },
+      b => useBlob(b),
+      { initialProps: undefined }
     );
 
     expect(DFR.FileReader.mock.calls.length).toBe(0);
@@ -34,7 +34,9 @@ describe('useBlob', () => {
   });
 
   test('should read a blob', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useBlob(DFR.data[0].blob));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useBlob(DFR.data[0].blob)
+    );
 
     expect(result.current).toBe(undefined);
 
@@ -51,8 +53,8 @@ describe('useBlob', () => {
 
   test('should cleanup when switching to a new blob', async () => {
     const { result, waitForNextUpdate, rerender } = renderHook(
-      (b) => useBlob(b),
-      { initialProps: DFR.data[0].blob },
+      b => useBlob(b),
+      { initialProps: DFR.data[0].blob }
     );
 
     expect(result.current).toBe(undefined);

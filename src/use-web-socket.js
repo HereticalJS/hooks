@@ -18,9 +18,12 @@ function useWebSocket(url) {
     }
   }, [url]);
 
-  const handleMessage = useCallback(({ data }) => {
-    setMessage(data);
-  }, [setMessage]);
+  const handleMessage = useCallback(
+    ({ data }) => {
+      setMessage(data);
+    },
+    [setMessage]
+  );
 
   const handleError = useCallback(err => {
     console.error(err);
@@ -32,8 +35,7 @@ function useWebSocket(url) {
       return;
     }
 
-    const handleOpen = () =>
-      socket.addEventListener('message', handleMessage);
+    const handleOpen = () => socket.addEventListener('message', handleMessage);
     const handleClose = ({ code, reason, wasClean }) => {
       console.log(code, reason, wasClean);
       socket.removeEventListener('message', handleMessage);

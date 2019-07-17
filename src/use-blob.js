@@ -13,15 +13,20 @@ export const ResultType = {
   BINARY_STRING: 'binarystring',
   DATA_URL: 'dataurl',
   TEXT: 'text',
-}
+};
 
 function toMethodName(resultType) {
-  switch(resultType) {
-    case ResultType.ARRAY_BUFFER: return 'readAsArrayBuffer';
-    case ResultType.BINARY_STRING: return 'readAsBinaryString';
-    case ResultType.DATA_URL: return 'readAsDataURL';
-    case ResultType.TEXT: return 'readAsText';
-    default: return 'readAsArrayBuffer';
+  switch (resultType) {
+    case ResultType.ARRAY_BUFFER:
+      return 'readAsArrayBuffer';
+    case ResultType.BINARY_STRING:
+      return 'readAsBinaryString';
+    case ResultType.DATA_URL:
+      return 'readAsDataURL';
+    case ResultType.TEXT:
+      return 'readAsText';
+    default:
+      return 'readAsArrayBuffer';
   }
 }
 
