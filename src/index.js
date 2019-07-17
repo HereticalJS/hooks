@@ -11,3 +11,5 @@ export useSpace from './use-space';
 export useWebSocket from './use-web-socket';
 export useProp from './use-prop';
 export useInput from './use-input';
+export useMaybe from './use-maybe';
+export useOptional from './use-optional';
