@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function useGenerator(iter) {
   const [state, setState] = useState();
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
     if (!iter) return;
@@ -13,6 +14,7 @@ function useGenerator(iter) {
         if (value !== undefined) {
           setState(value);
         }
+        setDone(true);
         return;
       }
       setState(value);
@@ -24,10 +26,11 @@ function useGenerator(iter) {
       clearTimeout(id);
       id = undefined;
       setState();
+      setDone(false);
     };
   }, [iter]);
 
-  return state;
+  return [state, done];
 }
 
 export default useGenerator;

@@ -17,19 +17,23 @@ describe('useGenerator', () => {
     const { result, waitForNextUpdate } = renderHook(() => useGenerator(gen0()));
 
     let value;
+    let done;
 
-    value = result.current;
+    [value, done] = result.current;
     expect(value).toBe(undefined);
+    expect(done).toBe(false);
 
     await waitForNextUpdate();
 
-    value = result.current;
+    [value, done] = result.current;
     expect(value).toBe(0);
+    expect(done).toBe(false);
 
     await waitForNextUpdate();
 
-    value = result.current;
+    [value, done] = result.current;
     expect(value).toBe(1);
+    expect(done).toBe(true);
     */
   });
 
