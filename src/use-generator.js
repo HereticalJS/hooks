@@ -17,7 +17,7 @@ function useGenerator(iter) {
     }
     setState(value);
     setCounter(counter + 1);
-  }, [iter, counter])
+  }, [iter, counter]);
 
   useEffect(() => {
     if (!iter) return;

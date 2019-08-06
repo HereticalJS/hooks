@@ -12,7 +12,9 @@ function* gen1() {
 
 describe('useGenerator', () => {
   test('should update many times', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useGenerator(gen0()));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useGenerator(gen0())
+    );
 
     let value;
     let done;
@@ -32,7 +34,9 @@ describe('useGenerator', () => {
   });
 
   test('should just update the yield value', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useGenerator(gen1()));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useGenerator(gen1())
+    );
 
     const [value, done] = result.current;
     expect(value).toBe(0);
