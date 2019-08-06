@@ -1,4 +1,4 @@
-import { renderHook, act } from 'react-hooks-testing-library';
+import { renderHook, act } from '@testing-library/react-hooks';
 import Blob from 'blob';
 import * as DFR from './dummy-file-reader';
 import useBlob from '../use-blob';

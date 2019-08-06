@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { renderHook, act } from 'react-hooks-testing-library';
+import { renderHook, act } from '@testing-library/react-hooks';
 import useSpace from '../use-space';
 
 function useThree() {

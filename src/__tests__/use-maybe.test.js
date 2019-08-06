@@ -1,4 +1,4 @@
-import { renderHook, act } from 'react-hooks-testing-library';
+import { renderHook, act } from '@testing-library/react-hooks';
 import useMaybe from '../use-maybe';
 
 describe('useMaybe', () => {
