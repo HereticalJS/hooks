@@ -10,25 +10,19 @@ function* gen1() {
   yield 0;
 }
 
-// XXX: `useGenerator` is not testable right now
 describe('useGenerator', () => {
   test('should update many times', async () => {
-    /*
     const { result, waitForNextUpdate } = renderHook(() => useGenerator(gen0()));
 
     let value;
     let done;
 
     [value, done] = result.current;
-    expect(value).toBe(undefined);
-    expect(done).toBe(false);
-
-    await waitForNextUpdate();
-
-    [value, done] = result.current;
     expect(value).toBe(0);
     expect(done).toBe(false);
 
+    // XXX: `waitForNextUpdate` is not working here
+    /*
     await waitForNextUpdate();
 
     [value, done] = result.current;
@@ -37,5 +31,11 @@ describe('useGenerator', () => {
     */
   });
 
-  test('should just update the yield value', async () => {});
+  test('should just update the yield value', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useGenerator(gen1()));
+
+    const [value, done] = result.current;
+    expect(value).toBe(0);
+    expect(done).toBe(false);
+  });
 });
