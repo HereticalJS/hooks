@@ -35,9 +35,9 @@
     "blob": "0.0.5",
     "jest": "^24.8.0",
     "prettier": "^1.17.0",
-    "react": "^16.8.0",
-    "@testing-library/react-hooks": "^1.1.0",
-    "react-test-renderer": "^16.8.0",
+    "react": "^16.9.0",
+    "@testing-library/react-hooks": "^2.0.1",
+    "react-test-renderer": "^16.9.0",
     "rimraf": "^2.6.3"
   },
   "peerDependencies": {
