@@ -2,9 +2,6 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import usePromise from '../use-promise';
 
 describe('usePromise', () => {
-  // XXX:
-  //   async tests still emit console errors
-  //   see: https://github.com/mpeyper/react-hooks-testing-library/issues/14
   test('should resolve a promise', async () => {
     const p = Promise.resolve(true);
     const { result, waitForNextUpdate } = renderHook(() => usePromise(p));

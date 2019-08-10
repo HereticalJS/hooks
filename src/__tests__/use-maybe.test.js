@@ -2,9 +2,6 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import useMaybe from '../use-maybe';
 
 describe('useMaybe', () => {
-  // XXX:
-  //   async tests still emit console errors
-  //   see: https://github.com/mpeyper/react-hooks-testing-library/issues/14
   test('should not trigger the continuation', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       useMaybe([undefined, 1], x => x, 0)

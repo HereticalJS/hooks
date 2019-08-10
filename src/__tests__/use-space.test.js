@@ -13,10 +13,8 @@ function useThree() {
   return state;
 }
 
-// XXX: Looks like it's not possible to test this hook now.
 describe('useSpace', () => {
   test('should flat values from time into space', async () => {
-    /*
     const { result, waitForNextUpdate } = renderHook(
       () => useSpace(useThree()),
     );
@@ -30,11 +28,9 @@ describe('useSpace', () => {
     await waitForNextUpdate();
 
     expect(result.current[0]).toEqual([0, 1, 2]);
-    */
   });
 
   test('should be able to reset values', async () => {
-    /*
     const { result, waitForNextUpdate } = renderHook(
       () => useSpace(useThree()),
     );
@@ -51,6 +47,5 @@ describe('useSpace', () => {
 
     [states] = result.current;
     expect(states).toEqual([]);
-    */
   });
 });
