@@ -7,7 +7,6 @@
     "build:clean": "rimraf dist/*",
     "build:babel": "babel --ignore 'src/**/__tests__/' src --out-dir dist",
     "build": "npm run build:clean && npm run build:babel",
-    "prepublish": "npm run build",
     "prettier": "npx prettier --write './src/**/*.js'",
     "test": "jest"
   },
