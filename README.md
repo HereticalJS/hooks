@@ -170,7 +170,6 @@ const v = useGenerator(iter);
 
 ## ToDo
 
-* [x] `useBlob`
-* [ ] Test custom hooks in a headless browser
+* [ ] test custom hooks in a headless browser
 * [ ] use `useDebugValue`
 * [ ] rewrite in TypeScript
