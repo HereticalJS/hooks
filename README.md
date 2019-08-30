@@ -22,6 +22,18 @@ declare const usePromise: <T>(p: Promise<T | undefined>, init?: T) => [T | undef
 const [value, error, isPending] = usePromise(api.get('https://example.com'));
 ```
 
+### `useImageData`
+
+```typescript
+declare const useImageData: (url: string) => ImageData | undefined;
+```
+
+ `useImageData` reads an image from a URL and gives you a `ImageData`.
+
+ ```javascript
+ const imageData = useImageData('https://example.com/lena.png');
+ ```
+
 ## ToDo
 
 * [x] `useBlob`
