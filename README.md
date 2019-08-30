@@ -63,10 +63,10 @@ Reads a `Blob` as an `ArrayBuffer` or a string. Defaults to an `ArrayBuffer`.
 
 ```typescript
 enum ResultType {
-    ARRAY_BUFFER = 'arraybuffer',
-    BINARY_STRING = 'binarystring',
-    DATA_URL = 'dataurl',
-    TEXT = 'text',
+  ARRAY_BUFFER = 'arraybuffer',
+  BINARY_STRING = 'binarystring',
+  DATA_URL = 'dataurl',
+  TEXT = 'text',
 }
 declare const useBlob: (blob: Blob, type: ResultType) => ArrayBuffer | string;
 declare const useFile: typeof useBlob;
@@ -133,8 +133,8 @@ A shortcut to bind a value to an input element.
 
 ```typescript
 const [r, rRange] = useInput(
-	<input type="range" min="0.0" max="1.0" step="0.01" />,
-	'1.0',
+  <input type="range" min="0.0" max="1.0" step="0.01" />,
+  '1.0',
 )
 ```
 
