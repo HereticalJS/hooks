@@ -80,6 +80,10 @@ declare const useObjectURL: (o: any) => string;
 const imageData = useImageData(useObjectURL(file));
 ```
 
+### `useImageFile`
+
+Gives a `ImageData` from an image blob. It's an alias of `file => useImageData(useObjectURL(file))`.
+
 ## ToDo
 
 * [x] `useBlob`
