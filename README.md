@@ -84,6 +84,24 @@ const imageData = useImageData(useObjectURL(file));
 
 Gives a `ImageData` from an image blob. It's an alias of `file => useImageData(useObjectURL(file))`.
 
+### `useSpace`
+
+Stores state histories. It uses `undefined` as a reset value so it can cooperate with other custom hooks.
+
+It's named as `useSpace` instead of `useHistory` because it flattens a value in time to space(a list).
+
+```typescript
+declare const useSpace: <T>(s: T) => [T] | undefined;
+
+const [state, setState] = useState(0);
+const histories = useSpace(state);
+
+useEffect(() => {
+  setState(s => s + 1);
+  console.log(histories);
+}, [histories]);
+```
+
 ## ToDo
 
 * [x] `useBlob`
