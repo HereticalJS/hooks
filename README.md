@@ -16,9 +16,7 @@ Resolves a `Promise` and returns its status.
 
 ```typescript
 declare const usePromise: <T>(p: Promise<T | undefined>, init?: T) => [T | undefined, Error, boolean];
-```
 
-```javascript
 const [value, error, isPending] = usePromise(api.get('https://example.com'));
 ```
 
@@ -28,9 +26,7 @@ Reads an image from a URL and gives you a `ImageData`.
 
 ```typescript
 declare const useImageData: (url: string) => ImageData | undefined;
-```
 
-```javascript
 const imageData = useImageData('https://example.com/lena.png');
 ```
 
@@ -40,9 +36,7 @@ Gives a `DOMHighResTimeStamp` diff from the time it was called first time.
 
 ```typescript
 declare const useTime: () => number;
-```
 
-```javascript
 const t = useTime();
 ```
 
@@ -52,9 +46,7 @@ Gives a number between `start` and `end`. It's an application of `useTime` and i
 
 ```typescript
 declare const useRange: (start: number, end: number) => number;
-```
 
-```javascript
 const theta = useRange(0, 2 * Math.PI);
 const x = Math.cos(theta);
 const y = Math.sin(theta);
@@ -74,9 +66,7 @@ enum ResultType {
 }
 declare const useBlob: (blob: Blob, type: ResultType) => ArrayBuffer | string;
 declare const useFile: typeof useBlob;
-```
 
-```javascript
 const dataurl = useBlob(file, useBlob.ResultType.DATA_URL);
 ```
 
@@ -85,3 +75,4 @@ const dataurl = useBlob(file, useBlob.ResultType.DATA_URL);
 * [x] `useBlob`
 * [ ] Test custom hooks in a headless browser
 * [ ] use `useDebugValue`
+* [ ] rewrite in TypeScript
