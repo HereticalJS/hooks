@@ -165,7 +165,7 @@ function* gen() {
 }
 
 const iter = useMemo(() => gen(), []);
-const v = useGenerator(iter);
+const [v, isDone] = useGenerator(iter);
 ```
 
 ## ToDo
