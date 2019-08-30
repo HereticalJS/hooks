@@ -152,6 +152,22 @@ const ab = useMaybe(
 );
 ```
 
+### `useGenerator`
+
+Treats a generator as a stream and collects values from it.
+
+```typescript
+declare const useGenerator: <T>(iter: Iterator<T>) => [T, boolean];
+
+function* gen() {
+  yield 0;
+  return 1;
+}
+
+const iter = useMemo(() => gen(), []);
+const v = useGenerator(iter);
+```
+
 ## ToDo
 
 * [x] `useBlob`
