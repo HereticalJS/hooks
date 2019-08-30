@@ -8,10 +8,22 @@ Some useful React Hooks.
 npm install @caasi/hooks
 ```
 
+## Basic usage
+
+### `usePromise`
+
+```typescript
+declare const usePromise: <T>(p: Promise<T | undefined>, init?: T) => [T | undefined, Error, boolean];
+```
+
+`usePromise` resolve a `Promise` and returns its status.
+
+```javascript
+const [value, error, isPending] = usePromise(api.get('https://example.com'));
+```
+
 ## ToDo
 
 * [x] `useBlob`
-* [ ] Write tests
-  * [ ] Test blob reset
-* [ ] `useWebSocket`
+* [ ] Test custom hooks in a headless browser
 * [ ] use `useDebugValue`
