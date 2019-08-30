@@ -70,6 +70,16 @@ declare const useFile: typeof useBlob;
 const dataurl = useBlob(file, useBlob.ResultType.DATA_URL);
 ```
 
+### `useObjectURL`
+
+Creates an object URL from anything. It's useful with an image blob.
+
+```typescript
+declare const useObjectURL: (o: any) => string;
+
+const imageData = useImageData(useObjectURL(file));
+```
+
 ## ToDo
 
 * [x] `useBlob`
