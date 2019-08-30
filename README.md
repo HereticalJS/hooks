@@ -34,6 +34,18 @@ declare const useImageData: (url: string) => ImageData | undefined;
  const imageData = useImageData('https://example.com/lena.png');
  ```
 
+### `useTime`
+
+```typescript
+declare const useTime: () => number;
+```
+
+`useTime` gives a `DOMHighResTimeStamp` diff from the time it was called first time.
+
+```javascript
+const t = useTime();
+```
+
 ## ToDo
 
 * [x] `useBlob`
