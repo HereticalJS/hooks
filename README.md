@@ -10,12 +10,16 @@ npm install @caasi/hooks
 
 ## Basic usage
 
+```typescript
+type Opt<T> = T | undefined;
+```
+
 ### `usePromise`
 
 Resolves a `Promise` and returns its status.
 
 ```typescript
-declare const usePromise: <T>(p: Promise<T | undefined>, init?: T) => [T | undefined, Error, boolean];
+declare const usePromise: <T>(p: Promise<Opt<T>>, init?: T) => [Opt<T>, Error, boolean];
 
 const [value, error, isPending] = usePromise(api.get('https://example.com'));
 ```
@@ -25,7 +29,7 @@ const [value, error, isPending] = usePromise(api.get('https://example.com'));
 Reads an image from a URL and gives you a `ImageData`.
 
 ```typescript
-declare const useImageData: (url: string) => ImageData | undefined;
+declare const useImageData: (url: string) => Opt<ImageData>;
 
 const imageData = useImageData('https://example.com/lena.png');
 ```
@@ -91,7 +95,7 @@ Stores state histories. It uses `undefined` as a reset value so it can cooperate
 It's named as `useSpace` instead of `useHistory` because it flattens a value in time to space(a list).
 
 ```typescript
-declare const useSpace: <T>(s: T) => [T] | undefined;
+declare const useSpace: <T>(s: T) => Opt<[T]>;
 
 const [state, setState] = useState(0);
 const histories = useSpace(state);
@@ -132,6 +136,20 @@ const [r, rRange] = useInput(
 	<input type="range" min="0.0" max="1.0" step="0.01" />,
 	'1.0',
 )
+```
+
+### `useMaybe`/`useOptional`
+
+Chains optional values into another optional value.
+
+```typescript
+declare const useMaybe: <T>(deps: Opt<any>[], f: (...args: any[]) => T) => Opt<T>;
+declare const useOptional: typeof useMaybe;
+
+const ab = useMaybe(
+  [a, b],
+  (a, b) => a * a + b * b,
+);
 ```
 
 ## ToDo
