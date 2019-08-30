@@ -113,6 +113,27 @@ const [socket, messages = []] = useWebSocket('wss://echo.websocket.org');
 const msgs = messages.filter(x => x).reverse();
 ```
 
+### `useProp`
+
+Binds a state and a state handler to a React element.
+
+```typescript
+declare const useProp: <T, U, V extends string>(elem: ReactElement<U, V>, value: T, valueKey: string, handlerKey: string, selector: Function): [T, ReactElement<U, V>];
+
+const [val, elem] = useProp(element, value, 'value', 'onChange', e => e.target.value);
+```
+
+### `useInput`
+
+A shortcut to bind a value to an input element.
+
+```typescript
+const [r, rRange] = useInput(
+	<input type="range" min="0.0" max="1.0" step="0.01" />,
+	'1.0',
+)
+```
+
 ## ToDo
 
 * [x] `useBlob`
