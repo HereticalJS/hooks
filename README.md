@@ -102,6 +102,17 @@ useEffect(() => {
 }, [histories]);
 ```
 
+### `useWebSocket`
+
+Opens a web socket and streams messages.
+
+```typescript
+declare const useWebSocket: (url: string) => [WebSocket, string[], (ss: string[]) => void];
+
+const [socket, messages = []] = useWebSocket('wss://echo.websocket.org');
+const msgs = messages.filter(x => x).reverse();
+```
+
 ## ToDo
 
 * [x] `useBlob`
