@@ -61,6 +61,25 @@ const y = Math.sin(theta);
 const pt = { x, y };
 ```
 
+### `useBlob`/`useFile`
+
+Reads a `Blob` as an `ArrayBuffer` or a string. Defaults to an `ArrayBuffer`.
+
+```typescript
+enum ResultType {
+    ARRAY_BUFFER = 'arraybuffer',
+    BINARY_STRING = 'binarystring',
+    DATA_URL = 'dataurl',
+    TEXT = 'text',
+}
+declare const useBlob: (blob: Blob, type: ResultType) => ArrayBuffer | string;
+declare const useFile: typeof useBlob;
+```
+
+```javascript
+const dataurl = useBlob(file, useBlob.ResultType.DATA_URL);
+```
+
 ## ToDo
 
 * [x] `useBlob`
