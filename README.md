@@ -46,6 +46,21 @@ declare const useTime: () => number;
 const t = useTime();
 ```
 
+### `useRange`
+
+Gives a number between `start` and `end`. It's an application of `useTime` and it's useful in simple animation.
+
+```typescript
+declare const useRange: (start: number, end: number) => number;
+```
+
+```javascript
+const theta = useRange(0, 2 * Math.PI);
+const x = Math.cos(theta);
+const y = Math.sin(theta);
+const pt = { x, y };
+```
+
 ## ToDo
 
 * [x] `useBlob`
