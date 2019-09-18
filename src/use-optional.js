@@ -1,1 +1,1 @@
-export { default } from 'use-maybe';
+export { default } from './use-maybe';
