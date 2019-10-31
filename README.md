@@ -170,6 +170,6 @@ const [v, isDone] = useGenerator(iter);
 
 ## ToDo
 
-* [ ] test custom hooks in a headless browser
+* [ ] test custom hooks with [cypress](https://www.cypress.io/)
 * [ ] use `useDebugValue`
-* [ ] rewrite in TypeScript
+* [ ] rewrite everything in TypeScript
