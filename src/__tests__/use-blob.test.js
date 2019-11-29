@@ -65,13 +65,13 @@ describe('useBlob', () => {
 
     await waitForNextUpdate();
 
-    expect(DFR.removeEventListener.mock.calls.length).toBe(1);
+    expect(DFR.removeEventListener.mock.calls.length).toBe(2);
 
     expect(result.current).toBe(DFR.data[0].buffer);
 
     rerender(DFR.data[1].blob);
 
-    expect(DFR.removeEventListener.mock.calls.length).toBe(2);
+    expect(DFR.removeEventListener.mock.calls.length).toBe(3);
 
     expect(result.current).toBe(DFR.data[0].buffer);
 
@@ -81,7 +81,7 @@ describe('useBlob', () => {
 
     await waitForNextUpdate();
 
-    expect(DFR.removeEventListener.mock.calls.length).toBe(3);
+    expect(DFR.removeEventListener.mock.calls.length).toBe(4);
 
     expect(result.current).toBe(DFR.data[1].buffer);
   });
