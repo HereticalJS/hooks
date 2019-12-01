@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fixScope } from '../support/fix-react-dom-scope';
+import { useBlob, useFile } from '../../';
 import {
   image_data_url,
   image_array,
@@ -10,9 +11,16 @@ import {
   BlobAsBinaryString,
   BlobAsDataURL,
   BlobAsText,
+  BlobSwitch,
 } from '../components/BlobTest';
 
 beforeEach(() => fixScope(ReactDOM)(window));
+
+describe('`useFile`', () => {
+  it('should be an alias of `useBlob`', () => {
+    expect(useFile).to.equal(useBlob);
+  });
+});
 
 describe('`useBlob`', () => {
   it('should ignore anything but a blob', () => {
@@ -37,6 +45,14 @@ describe('`useBlob`', () => {
 
   it('should read a blob as a text string', () => {
     cy.mount(<BlobAsText />);
+    cy.contains(text);
+  });
+
+  it('should be able to read different blobs', () => {
+    cy.mount(<BlobSwitch />);
+    cy.contains(image_array.toString());
+    cy.get('#btn')
+      .click();
     cy.contains(text);
   });
 });

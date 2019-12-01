@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { usePromise, useBlob } from '../../';
 
 export const image_data_url =
@@ -49,5 +49,25 @@ export function BlobAsText() {
   const [blob] = useFetchedBlob(text_data_url);
   const text = useBlob(blob, useBlob.ResultType.TEXT) || '';
   return text;
+}
+
+export function BlobSwitch() {
+  const [url, setURL] = useState(image_data_url);
+  const [blob] = useFetchedBlob(url);
+  const str = useBlob(blob, useBlob.ResultType.BINARY_STRING) || '';
+  return (
+    <div>
+      <ul>
+        <li>{str}</li>
+        <li>{`${arrayFromString(str)}`}</li>
+      </ul>
+      <button
+        id="btn"
+        onClick={() => setURL(text_data_url)}
+      >
+        click
+      </button>
+    </div>
+  );
 }
 
