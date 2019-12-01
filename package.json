@@ -8,6 +8,8 @@
     "build:babel": "babel --ignore 'src/**/__tests__/' src --out-dir dist",
     "build": "npm run build:clean && npm run build:babel",
     "prettier": "npx prettier --write './src/**/*.js'",
+    "cypress:open": "cypress open",
+    "cypress": "cypress run --config video=false",
     "test": "jest"
   },
   "repository": {
@@ -31,11 +33,14 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
     "@babel/plugin-transform-arrow-functions": "^7.7.4",
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
+    "@testing-library/react-hooks": "^3.2.1",
     "blob": "0.0.5",
+    "cypress": "^3.7.0",
+    "cypress-react-unit-test": "^2.4.3",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
-    "@testing-library/react-hooks": "^3.2.1",
+    "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "rimraf": "^3.0.0"
   },
