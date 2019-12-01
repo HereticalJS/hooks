@@ -12,7 +12,7 @@ import {
   BlobAsDataURL,
   BlobAsText,
   BlobSwitch,
-} from '../components/BlobTest';
+} from '../components/Blob';
 
 beforeEach(() => fixScope(ReactDOM)(window));
 
