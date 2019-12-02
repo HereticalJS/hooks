@@ -19,4 +19,3 @@ function useGenerator(iter, initial) {
 }
 
 export default useGenerator;
-

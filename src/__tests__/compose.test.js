@@ -7,4 +7,3 @@ describe('`compose`', () => {
     expect(compose(mul2, add1)(1)).toBe(mul2(add1(1)));
   });
 });
-
