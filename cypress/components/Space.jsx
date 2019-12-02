@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSpace } from '../../';
+import { useSpace } from '../../src';
 
 function useThree() {
   const [state, setState] = useState(0);

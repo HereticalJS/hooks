@@ -34,6 +34,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
     "@babel/plugin-transform-arrow-functions": "^7.7.4",
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
+    "@cypress/browserify-preprocessor": "^2.1.1",
     "@testing-library/react-hooks": "^3.2.1",
     "blob": "0.0.5",
     "cypress": "^3.7.0",

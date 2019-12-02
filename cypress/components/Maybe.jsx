@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMaybe } from '../../';
+import { useMaybe } from '../../src';
 
 export function WithUndefined() {
   const value = useMaybe([undefined, 1], (x, y) => y, 0);

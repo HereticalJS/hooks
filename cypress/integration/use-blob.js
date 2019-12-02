@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fixScope } from '../support/fix-react-dom-scope';
-import { useBlob, useFile } from '../../';
+import { useBlob, useFile } from '../../src';
 import {
   image_data_url,
   image_array,

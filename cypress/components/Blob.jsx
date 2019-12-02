@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { usePromise, useBlob } from '../../';
+import { usePromise, useBlob } from '../../src';
 
 export const image_data_url =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVQYV2P4DwABAQEAWk1v8QAAAABJRU5ErkJggg==';

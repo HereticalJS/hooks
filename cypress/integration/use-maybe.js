@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fixScope } from '../support/fix-react-dom-scope';
-import { useMaybe, useOptional } from '../../';
+import { useMaybe, useOptional } from '../../src';
 import {
   WithUndefined,
   WithoutUndefined,

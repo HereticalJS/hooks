@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { usePromise } from '../../';
+import { usePromise } from '../../src';
 
 const delay = time => value =>
   new Promise(resolve => setTimeout(resolve, time, value));

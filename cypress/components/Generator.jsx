@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useGenerator, useSpace } from '../../';
+import { useGenerator, useSpace } from '../../src';
 
 function* gen0() {
   yield 0;
