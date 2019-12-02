@@ -1,4 +1,6 @@
 node_modules
 src
 cypress
+cypress.json
+jest.config.js
 package-lock.json
