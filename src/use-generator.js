@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
 import useDefined from './use-defined';
 
-function useGenerator(iter, initial) {
-  const [next, setNext] = useState({ done: false, value: initial });
+function callNext(iter) {
+  return iter && typeof iter.next === 'function' && iter.next();
+}
+
+function useGenerator(iter) {
+  const [next = { done: false }, setNext] = useState(callNext(iter));
 
   useEffect(() => {
     if (!iter) return;
     if (next.done) return;
-    setNext(iter.next());
+    setNext(callNext(iter));
   }, [next]);
 
   useEffect(() => {
     if (!iter) return;
-    return () => setNext({ done: false, value: initial });
+    return () => setNext(callNext(iter));
   }, [iter]);
 
   return [useDefined(next.value), useDefined(next.done)];
