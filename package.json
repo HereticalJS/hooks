@@ -9,8 +9,9 @@
     "build": "npm run build:clean && npm run build:babel",
     "prettier": "npx prettier --write './src/**/*.js'",
     "cypress:open": "cypress open",
-    "cypress": "cypress run --config video=false",
-    "test": "jest"
+    "test:jest": "jest",
+    "test:cypress": "cypress run",
+    "test": "npm run test:jest && npm run test:cypress"
   },
   "repository": {
     "type": "git",
