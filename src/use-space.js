@@ -6,9 +6,11 @@ import { useState, useEffect } from 'react';
  * It also take a lot of spaces if you are not watching. XD
  */
 function useSpace(state) {
+  // TODO: use an empty array as the initial value
   const [states, setStates] = useState();
 
   useEffect(() => {
+    // TODO: stop using `undefined` as a reste signal
     if (state === undefined) {
       setStates();
       return;
