@@ -170,7 +170,7 @@ const [v, isDone] = useGenerator(iter);
 
 ## ToDo
 
-* [ ] test custom hooks with [cypress](https://www.cypress.io/)
-* [ ] add `useDefined` to keep the previous defined value
+* [x] test custom hooks with [cypress](https://www.cypress.io/)
+* [x] add `useDefined` to keep the previous defined value
 * [ ] use `useDebugValue`
 * [ ] rewrite everything in TypeScript
