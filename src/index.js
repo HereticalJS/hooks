@@ -1,4 +1,5 @@
 export compose from './compose';
+export useDefined from './use-defined';
 export usePromise from './use-promise';
 export useImageData from './use-image-data';
 export useTime from './use-time';
