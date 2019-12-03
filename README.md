@@ -1,3 +1,6 @@
+[![NPM Status](https://img.shields.io/npm/v/@caasi/hooks.svg?style=flat)](https://www.npmjs.com/package/@caasi/hooks)
+[![Build Status](https://travis-ci.org/caasi/hooks.svg?branch=master)](https://travis-ci.org/caasi/hooks)
+
 # @caasi/hooks
 
 Some useful React Hooks.
