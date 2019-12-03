@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '12.13'
+deploy:
+  provider: npm
+  email: caasi.igd@gmail.com
+  api_key:
+    secure: NncllQThqqSMICkNsJqwq6hq7ggBxv5UHSFaz4z5IQmx6fKSJrFBuzGWWx+jKRPeCn5+ihIk6d49c8kVYjAQ1OJJ8d2MMUkut5IFPHhYuvocUOxaVhHbbiHpxcuKPxh+jQksJRllv1iR/n7rkly0ykGIMILiuv6HGRtUv+JBwBHhptQ1ExCAfaU7F0HwpW7fgzjikgyAKPrf4PU4zUeQIr7C5f+l2hbebq6sJnVItXbcoo3SvgAvaih59r4amFfEzlVYB+qDrCel1hTXrbTtG6CkvTtQQAIebcZnRNwFU1WFt+v7Pi7QtdSS0ZoQoSNA1adrdxubpWYgpMFn5knedZkK3+vnMCMIMCUQCct1i/UhkNSc/S+SsNYrF5S3mPLmZKQ9x5dAARgq2ZjQ06j/SdKb9ANQn4lQ0YwwNNUuce9boVnYBeBEX1cpXxkQPJ/B5QLKGgePj+ATVLF6+XjQPa8b8vO2oulsMshE+6S0F7rzyF7g9bZy5u0xz/KiHfSQK3V1sQOyxJOI7I0EtElkmbM2HlyiscojBuCE7qw+y6vw7xNJtvLXqMLaNXXUt1Rajwve4LO/NO5GkRLsMZKVBIXCXIQKdhBJg6k4U5JTuzO65Ae93AbtqXF8BCZ3GGkY7CY4do6T1f6J4sRDeLGrztphkbue0DmOYBgCcCdQb9A=
+  on:
+    tags: true
+    repo: caasi/hooks

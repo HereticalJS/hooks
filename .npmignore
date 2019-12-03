@@ -3,6 +3,7 @@ src
 cypress
 .babelrc
 .prettierrc.toml
+.travis.yml
 cypress.json
 jest.config.js
 package-lock.json
