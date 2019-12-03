@@ -15,6 +15,8 @@ cache:
     - ~/.cache
 install:
   - npm ci
+script:
+  - npm run build
 deploy:
   provider: npm
   email: caasi.igd@gmail.com
