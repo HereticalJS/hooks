@@ -9,4 +9,3 @@ export default function useReduce(x, f, init) {
 
   return acc;
 }
-
