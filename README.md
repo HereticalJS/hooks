@@ -173,5 +173,15 @@ const [v, isDone] = useGenerator(iter);
 * [x] test custom hooks with [cypress](https://www.cypress.io/)
 * [x] add `useDefined` to keep the previous defined value
 * [ ] stop using `undefined` as a reset signal
-* [ ] use `useDebugValue`
+* [ ] test more hooks
+  * [ ] `useImageData`
+  * [ ] `useImageFile`
+  * [ ] `useProp`
+  * [ ] `useInput`
+  * [ ] `useObjectURL`
+  * [ ] `useTime`
+  * [ ] `useRange`
+  * [ ] `useWebSocket`
 * [ ] rewrite everything in TypeScript
+* [ ] implement `reduce`, `map`, `filter`, `join` for hook value
+* [ ] use `useDebugValue`
