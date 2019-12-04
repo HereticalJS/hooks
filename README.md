@@ -68,6 +68,28 @@ const [value, done] = useGenerator(iter);
 const x = useFold(value, (a, b) => a + b, 0); // yields 0, 1, 3 and 6
 ```
 
+### `useMap`
+
+Maps a function over a hook value.
+
+```javascript
+const add1 = useCallback(x => x + 1, []);
+const as = useMemo(() => [0, 1, 2], []);
+const x = useArray(as);
+const y = useMap(x, add1); // yields 1, 2 and 3
+```
+
+### `useFilter`
+
+Filters out unwanted values.
+
+```javascript
+const mod2 = useCallback(x => x % 2 === 0);
+const as = useMemo(() => [0, 1, 2], []);
+const x = useArray(as);
+const y = useFilter(x, mod2); // yields 0 and 2
+```
+
 ### `usePromise`
 
 Resolves a `Promise` and returns its status.
