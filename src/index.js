@@ -1,7 +1,6 @@
 export compose from './compose';
 export useDefined from './use-defined';
 export useFold from './use-fold';
-export useMap from './use-map';
 export useFilter from './use-filter';
 export usePromise from './use-promise';
 export useImageData from './use-image-data';
