@@ -6,18 +6,18 @@ import {
   sum,
   AsArray,
   AsSum,
-} from '../components/Reduce';
+} from '../components/Fold';
 
 beforeEach(() => fixScope(ReactDOM)(window));
 
-describe('`useReduce`', () => {
-  it('should reduce to an array', () => {
+describe('`useFold`', () => {
+  it('should fold to an array', () => {
     cy.mount(<AsArray />);
     cy.get('#value')
       .contains(`${array}`);
   });
 
-  it('should reduce to a single value', () => {
+  it('should fold to a single value', () => {
     cy.mount(<AsSum />);
     cy.get('#value')
       .contains(`${sum}`);

@@ -43,7 +43,7 @@ const [value, done] = useGenerator(iter);
 const x = useDefined(value); // yields 0 and 1
 ```
 
-### `useReduce`
+### `useFold`
 
 Folds over a hook value.
 
@@ -56,7 +56,7 @@ function* gen() {
 
 const iter = useMemo(() => gen(), []);
 const [value, done] = useGenerator(iter);
-const x = useReduce(value, (a, b) => a + b, 0); // yields 0, 1, 3 and 6
+const x = useFold(value, (a, b) => a + b, 0); // yields 0, 1, 3 and 6
 ```
 
 ### `usePromise`
@@ -188,7 +188,7 @@ useEffect(() => {
 * [x] test custom hooks with [cypress](https://www.cypress.io/)
 * [x] add `useDefined` to keep the previous defined value
 * [x] remove `.github`
-* [x] implement `useReduce`
+* [x] implement `useFold`
   * [ ] implement `useMap`
   * [ ] implement `useFilter`
 * [ ] stop using `undefined` as a reset signal

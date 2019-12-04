@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useReduce } from '../../src';
+import { useFold } from '../../src';
 
 function useThree() {
   const [state, setState] = useState(0);
@@ -24,14 +24,14 @@ const concat = (acc, x) => [...acc, x];
 const add = (acc, x) => acc + x;
 
 export function AsArray() {
-  const as = useReduce(useThree(), concat, []);
+  const as = useFold(useThree(), concat, []);
   return (
     <div id="value">{`${as}`}</div>
   );
 }
 
 export function AsSum() {
-  const sum = useReduce(useThree(), add, 0);
+  const sum = useFold(useThree(), add, 0);
   return (
     <div id="value">{`${sum}`}</div>
   );

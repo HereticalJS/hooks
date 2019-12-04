@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useReduce(x, f, init) {
+export default function useFold(x, f, init) {
   const [acc, setAcc] = useState(init);
 
   useEffect(() => {
