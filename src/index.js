@@ -16,3 +16,4 @@ export useInput from './use-input';
 export useMaybe from './use-maybe';
 export useOptional from './use-optional';
 export useGenerator from './use-generator';
+export useArray from './use-array';

@@ -13,6 +13,15 @@ npm install @caasi/hooks
 
 ## Core hooks
 
+### `useArray`
+
+Yields every values from a given array.
+
+```javascript
+const xs = useMemo(() => [0, 1, 2], []);
+const x = useArray(xs); // yields 0, 1 and 2
+```
+
 ### `useGenerator`
 
 Treats a generator as a stream and collects values from it.
