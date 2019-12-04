@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { fixScope } from '../support/fix-react-dom-scope';
 import { useMaybe, useOptional } from '../../src';
-import {
-  WithUndefined,
-  WithoutUndefined,
-} from '../components/Maybe';
 
 beforeEach(() => fixScope(ReactDOM)(window));
 
@@ -17,12 +13,26 @@ describe('`useOptional`', () => {
 
 describe('`useMaybe`', () => {
   it('should not trigger the continuation', () => {
+    function WithUndefined() {
+      const value = useMaybe([undefined, 1], (x, y) => y, 0);
+      return (
+        <div id="value">{value}</div>
+      );
+    }
+
     cy.mount(<WithUndefined />);
     cy.get('#value')
       .contains('0');
   });
 
   it('should trigger the continuation', () => {
+    function WithoutUndefined() {
+      const value = useMaybe([1, 2], (x, y) => x + y, 0);
+      return (
+        <div id="value">{value}</div>
+      );
+    }
+
     cy.mount(<WithoutUndefined />);
     cy.get('#value')
       .contains('3');
