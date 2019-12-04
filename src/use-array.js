@@ -5,7 +5,7 @@ export default function useArray(xs) {
 
   useEffect(() => {
     setIndex(0);
-  }, [xs])
+  }, [xs]);
 
   useEffect(() => {
     if (index < xs.length - 1) setIndex(index + 1);

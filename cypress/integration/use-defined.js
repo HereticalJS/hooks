@@ -33,14 +33,11 @@ describe('`useDefined`', () => {
   it('could be initialized as an undefined value', () => {
     function InitializedUndefined() {
       const v = useDefined();
-      return (
-        <div id="value">{`${v}`}</div>
-      );
+      return <div id="value">{`${v}`}</div>;
     }
 
     cy.mount(<InitializedUndefined />);
-    cy.get('#value')
-      .contains('undefined');
+    cy.get('#value').contains('undefined');
   });
 
   it('should update only defined values', () => {
@@ -48,14 +45,10 @@ describe('`useDefined`', () => {
       const n = useGappedNumbers();
       const v = useDefined(n);
       const vs = useSpace(v);
-      return (
-        <div id="value">{`${vs}`}</div>
-      );
+      return <div id="value">{`${vs}`}</div>;
     }
 
     cy.mount(<FilterDefined />);
-    cy.get('#value')
-      .contains(`${numbers}`);
+    cy.get('#value').contains(`${numbers}`);
   });
 });
-

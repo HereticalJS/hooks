@@ -17,27 +17,20 @@ describe('`useFold`', () => {
   it('should fold to an array', () => {
     function AsArray() {
       const as = useFold(useArray(array), concat, []);
-      return (
-        <div id="value">{`${as}`}</div>
-      );
+      return <div id="value">{`${as}`}</div>;
     }
 
     cy.mount(<AsArray />);
-    cy.get('#value')
-      .contains(`${array}`);
+    cy.get('#value').contains(`${array}`);
   });
 
   it('should fold to a single value', () => {
     function AsSum() {
       const sum = useFold(useArray(array), add, 0);
-      return (
-        <div id="value">{`${sum}`}</div>
-      );
+      return <div id="value">{`${sum}`}</div>;
     }
 
     cy.mount(<AsSum />);
-    cy.get('#value')
-      .contains(`${sum}`);
+    cy.get('#value').contains(`${sum}`);
   });
 });
-

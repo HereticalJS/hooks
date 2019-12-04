@@ -44,15 +44,12 @@ describe('`usePromise`', () => {
   it('should wait for a promise', () => {
     function Pending() {
       const p = useMemo(() => delay(100)(), []);
-      const [,, isPending] = usePromise(p);
-      return (
-        <div id="value">{`${isPending}`}</div>
-      );
+      const [, , isPending] = usePromise(p);
+      return <div id="value">{`${isPending}`}</div>;
     }
 
     cy.mount(<Pending />);
-    cy.get('#value')
-      .contains('true');
+    cy.get('#value').contains('true');
   });
 
   it('should use undefined to reset a result', () => {
@@ -64,23 +61,21 @@ describe('`usePromise`', () => {
       return (
         <div>
           <span id="value">{`${count}`}</span>
-          <button id="inc" onClick={inc}>increase</button>
-          <button id="reset" onClick={reset}>reset</button>
+          <button id="inc" onClick={inc}>
+            increase
+          </button>
+          <button id="reset" onClick={reset}>
+            reset
+          </button>
         </div>
       );
     }
 
     cy.mount(<Reset />);
-    cy.get('#value')
-      .contains('0');
-    cy.get('#inc')
-      .click()
-    cy.get('#value')
-      .contains('1');
-    cy.get('#reset')
-      .click();
-    cy.get('#value')
-      .contains('undefined');
+    cy.get('#value').contains('0');
+    cy.get('#inc').click();
+    cy.get('#value').contains('1');
+    cy.get('#reset').click();
+    cy.get('#value').contains('undefined');
   });
 });
-

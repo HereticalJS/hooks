@@ -7,7 +7,7 @@
     "build:clean": "rimraf dist/*",
     "build:babel": "babel --ignore 'src/**/__tests__/' src --out-dir dist",
     "build": "npm run build:clean && npm run build:babel",
-    "prettier": "npx prettier --write './src/**/*.js'",
+    "prettier": "npx prettier --write '{src,cypress}/**/*.js'",
     "cypress:open": "cypress open",
     "test:jest": "jest",
     "test:cypress": "cypress run",

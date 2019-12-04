@@ -14,13 +14,13 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
 // Import React unit test tools
-import 'cypress-react-unit-test'
+import 'cypress-react-unit-test';
 
 // Fixes incorrect React version
 // https://github.com/bahmutov/cypress-react-unit-test/issues/51

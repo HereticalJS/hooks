@@ -19,28 +19,21 @@ describe('`useGenerator`', () => {
     function YieldReturn() {
       const [value, done] = useGenerator(useMemo(() => gen0(), []));
       const vs = useSpace(`${value}:${done}`);
-      return (
-        <div id="value">{`${vs}`}</div>
-      );
+      return <div id="value">{`${vs}`}</div>;
     }
 
     cy.mount(<YieldReturn />);
-    cy.get('#value')
-      .contains('0:false,1:true');
+    cy.get('#value').contains('0:false,1:true');
   });
 
   it('should yield values without a return', () => {
     function JustYield() {
       const [value, done] = useGenerator(useMemo(() => gen1(), []));
       const vs = useSpace(`${value}:${done}`);
-      return (
-        <div id="value">{`${vs}`}</div>
-      );
+      return <div id="value">{`${vs}`}</div>;
     }
 
     cy.mount(<JustYield />);
-    cy.get('#value')
-      .contains('0:true');
+    cy.get('#value').contains('0:true');
   });
 });
-

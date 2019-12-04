@@ -6,18 +6,82 @@ import { usePromise, useBlob, useFile } from '../../src';
 const image_data_url =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVQYV2P4DwABAQEAWk1v8QAAAABJRU5ErkJggg==';
 
-const image_array =
-  [137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0, 0, 0, 58, 126, 155, 85, 0, 0, 0, 10, 73, 68, 65, 84, 24, 87, 99, 248, 15, 0, 1, 1, 1, 0, 90, 77, 111, 241, 0, 0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130];
+const image_array = [
+  137,
+  80,
+  78,
+  71,
+  13,
+  10,
+  26,
+  10,
+  0,
+  0,
+  0,
+  13,
+  73,
+  72,
+  68,
+  82,
+  0,
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  1,
+  8,
+  0,
+  0,
+  0,
+  0,
+  58,
+  126,
+  155,
+  85,
+  0,
+  0,
+  0,
+  10,
+  73,
+  68,
+  65,
+  84,
+  24,
+  87,
+  99,
+  248,
+  15,
+  0,
+  1,
+  1,
+  1,
+  0,
+  90,
+  77,
+  111,
+  241,
+  0,
+  0,
+  0,
+  0,
+  73,
+  69,
+  78,
+  68,
+  174,
+  66,
+  96,
+  130,
+];
 
 const text_data_url = 'data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D';
 
 const text = 'Hello, World!';
 
 function useFetchedBlob(url) {
-  return usePromise(useMemo(
-    () => fetch(url).then(res => res.blob()),
-    [url],
-  ));
+  return usePromise(useMemo(() => fetch(url).then(res => res.blob()), [url]));
 }
 
 function arrayFromString(str) {
@@ -98,10 +162,7 @@ describe('`useBlob`', () => {
             <li>{str}</li>
             <li>{`${arrayFromString(str)}`}</li>
           </ul>
-          <button
-            id="btn"
-            onClick={() => setURL(text_data_url)}
-          >
+          <button id="btn" onClick={() => setURL(text_data_url)}>
             click
           </button>
         </div>
@@ -110,8 +171,7 @@ describe('`useBlob`', () => {
 
     cy.mount(<BlobSwitch />);
     cy.contains(image_array.toString());
-    cy.get('#btn')
-      .click();
+    cy.get('#btn').click();
     cy.contains(text);
   });
 });
