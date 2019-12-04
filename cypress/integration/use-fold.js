@@ -1,21 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import ReactDOM from 'react-dom';
-import { useFold } from '../../src';
+import { useArray, useFold } from '../../src';
 import { fixScope } from '../support/fix-react-dom-scope';
-
-function useThree() {
-  const [state, setState] = useState(0);
-
-  useEffect(() => {
-    setTimeout(setState, 100, 1);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(setState, 200, 2);
-  })
-
-  return state;
-}
 
 const array = [0, 1, 2];
 
@@ -30,7 +16,7 @@ beforeEach(() => fixScope(ReactDOM)(window));
 describe('`useFold`', () => {
   it('should fold to an array', () => {
     function AsArray() {
-      const as = useFold(useThree(), concat, []);
+      const as = useFold(useArray(array), concat, []);
       return (
         <div id="value">{`${as}`}</div>
       );
@@ -43,7 +29,7 @@ describe('`useFold`', () => {
 
   it('should fold to a single value', () => {
     function AsSum() {
-      const sum = useFold(useThree(), add, 0);
+      const sum = useFold(useArray(array), add, 0);
       return (
         <div id="value">{`${sum}`}</div>
       );
