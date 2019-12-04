@@ -169,13 +169,13 @@ const [r, rRange] = useInput(
 
 ### `useSpace`
 
-Stores state histories. It uses `undefined` as a reset value so it can cooperate with other custom hooks.
+Stores state histories.
 
 It's named as `useSpace` instead of `useHistory` because it flattens a value in time to space(a list).
 
 ```javascript
 const [state, setState] = useState(0);
-const [history, resetHistory] = useSpace(state);
+const history = useSpace(state);
 
 useEffect(() => {
   setState(s => s + 1);
@@ -191,7 +191,7 @@ useEffect(() => {
 * [x] implement `useFold`
   * [ ] implement `useMap`
   * [ ] implement `useFilter`
-* [ ] stop using `undefined` as a reset signal
+* [x] stop using `undefined` as a reset signal in `useSpace`
 * [ ] test more hooks
   * [ ] `useImageData`
   * [ ] `useImageFile`

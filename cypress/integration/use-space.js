@@ -16,11 +16,5 @@ describe('`useSpace`', () => {
     cy.get('#value')
       .contains(`${flatted}`);
   });
-
-  it('should be able to set values', () => {
-    cy.mount(<SpaceSet />);
-    cy.get('#value')
-      .contains(`${setted}`);
-  });
 });
 

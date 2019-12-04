@@ -35,7 +35,7 @@ export function InitializedUndefined() {
 export function FilterDefined() {
   const n = useGappedNumbers();
   const v = useDefined(n);
-  const [vs] = useSpace(v);
+  const vs = useSpace(v);
   return (
     <div id="value">{`${vs}`}</div>
   );

@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import useFold from './use-fold';
+
+const concat = (acc = [], x) => [...acc, x];
 
 /**
  * Transforms states in time into states in space, and expose a function to
@@ -6,20 +9,7 @@ import { useState, useEffect } from 'react';
  * It also take a lot of spaces if you are not watching. XD
  */
 function useSpace(state) {
-  // TODO: use an empty array as the initial value
-  const [states, setStates] = useState();
-
-  useEffect(() => {
-    // TODO: stop using `undefined` as a reste signal
-    if (state === undefined) {
-      setStates();
-      return;
-    }
-
-    setStates((ss = []) => [...ss, state]);
-  }, [state]);
-
-  return [states, setStates];
+  return useFold(state, concat, []);
 }
 
 export default useSpace;

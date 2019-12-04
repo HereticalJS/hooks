@@ -12,7 +12,7 @@ function* gen1() {
 
 export function YieldReturn() {
   const [value, done] = useGenerator(useMemo(() => gen0(), []));
-  const [vs] = useSpace(`${value}:${done}`);
+  const vs = useSpace(`${value}:${done}`);
   return (
     <div id="value">{`${vs}`}</div>
   );
@@ -20,7 +20,7 @@ export function YieldReturn() {
 
 export function JustYield() {
   const [value, done] = useGenerator(useMemo(() => gen1(), []));
-  const [vs] = useSpace(`${value}:${done}`);
+  const vs = useSpace(`${value}:${done}`);
   return (
     <div id="value">{`${vs}`}</div>
   );

@@ -18,22 +18,8 @@ export const setted = [3, 4, 5];
 
 export function SpaceFromTime() {
   const x = useThree();
-  const [xs] = useSpace(x);
+  const xs = useSpace(x);
   return (
     <div id="value">{`${xs}`}</div>
   );
 }
-
-export function SpaceSet() {
-  const x = useThree();
-  const [xs, set] = useSpace(x);
-  useEffect(() => {
-    console.log(xs);
-    if (!xs || xs.length !== 3) return;
-    set(setted);
-  }, [xs]);
-  return (
-    <div id="value">{`${xs}`}</div>
-  );
-}
-
