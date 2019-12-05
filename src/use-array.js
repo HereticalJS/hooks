@@ -9,7 +9,7 @@ export default function useArray(xs) {
 
   useEffect(() => {
     if (index < xs.length - 1) setIndex(index + 1);
-  }, [index]);
+  }, [xs, index]);
 
   return xs[index];
 }
