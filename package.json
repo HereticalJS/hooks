@@ -1,6 +1,6 @@
 {
   "name": "@caasi/hooks",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Some useful React Hooks",
   "main": "dist/index.js",
   "scripts": {
