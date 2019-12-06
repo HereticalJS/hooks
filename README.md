@@ -209,8 +209,7 @@ useEffect(() => {
 * [x] add `useDefined` to keep the previous defined value
 * [x] remove `.github`
 * [x] implement `useFold`
-  * [ ] implement `useMap`
-  * [ ] implement `useFilter`
+  * [x] implement `useFilter`
 * [x] stop using `undefined` as a reset signal in `useSpace`
 * [ ] test more hooks
   * [ ] `useImageData`
@@ -220,5 +219,5 @@ useEffect(() => {
   * [ ] `useObjectURL`
   * [ ] `useTime`
   * [ ] `useRange`
-  * [ ] `useWebSocket`
+  * [x] `useWebSocket`
 * [ ] rewrite everything in TypeScript
