@@ -1,11 +1,9 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import useSpace from './use-space';
 
 const isWebSocketEnabled = 'WebSocket' in window;
 
 function useWebSocket(url) {
-  const [message, setMessage] = useState();
-  const [messages, setMessages] = useSpace(message);
+  const [messages, setMessages] = useState([]);
 
   const socket = useMemo(() => {
     if (!isWebSocketEnabled) return;
@@ -20,9 +18,9 @@ function useWebSocket(url) {
 
   const handleMessage = useCallback(
     ({ data }) => {
-      setMessage(data);
+      setMessages(msgs => [...msgs, data]);
     },
-    [setMessage]
+    [setMessages]
   );
 
   const handleError = useCallback(err => {
@@ -31,15 +29,13 @@ function useWebSocket(url) {
 
   useEffect(() => {
     if (!socket) {
-      setMessages();
+      setMessages([]);
       return;
     }
 
     const handleOpen = () => socket.addEventListener('message', handleMessage);
-    const handleClose = ({ code, reason, wasClean }) => {
-      console.log(code, reason, wasClean);
+    const handleClose = ({ code, reason, wasClean }) =>
       socket.removeEventListener('message', handleMessage);
-    };
     socket.addEventListener('open', handleOpen);
     socket.addEventListener('close', handleClose);
     socket.addEventListener('error', handleError);
