@@ -13,13 +13,27 @@ npm install @caasi/hooks
 
 ## Core hooks
 
-### `useArray`
+### `useConcat`
+
+Yields one value or another.
+
+```javascript
+const x = useConcat(0, 1); // yields 0 and 1
+```
+
+### `useArray`/`useList`
 
 Yields every values from a given array.
 
 ```javascript
 const xs = useMemo(() => [0, 1, 2], []);
 const x = useArray(xs); // yields 0, 1 and 2
+```
+
+`useList` is implementd with `useConcat`.
+
+```
+const useList = ([x, ...xs]) => useConcat(x, xs.length === 0 ? x : useList(xs));
 ```
 
 ### `useGenerator`
@@ -212,6 +226,7 @@ useEffect(() => {
   * [x] implement `useFilter`
 * [x] stop using `undefined` as a reset signal in `useSpace`
 * [ ] test more hooks
+  * [ ] `useConcat`
   * [ ] `useImageData`
   * [ ] `useImageFile`
   * [ ] `useProp`

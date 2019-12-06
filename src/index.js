@@ -1,4 +1,5 @@
 export compose from './compose';
+export useConcat from './use-concat';
 export useDefined from './use-defined';
 export useFold from './use-fold';
 export useFilter from './use-filter';
@@ -18,3 +19,4 @@ export useMaybe from './use-maybe';
 export useOptional from './use-optional';
 export useGenerator from './use-generator';
 export useArray from './use-array';
+export useList from './use-list';
