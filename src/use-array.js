@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 
 export default function useArray(xs) {
-  const [index, setIndex] = useState(0);
+  const [s, set] = useState(xs[0]);
 
   useEffect(() => {
-    setIndex(0);
+    for (let v of xs) {
+      setImmediate(set, v);
+    }
   }, [xs]);
 
-  useEffect(() => {
-    if (index < xs.length - 1) setIndex(index + 1);
-  }, [xs, index]);
-
-  return xs[index];
+  return s;
 }
