@@ -36,6 +36,12 @@ const x = useArray(xs); // yields 0, 1 and 2
 const useList = ([x, ...xs]) => useConcat(x, xs.length === 0 ? x : useList(xs));
 ```
 
+it breaks the rule of hooks but still passes the test:
+
+> Don’t call Hooks inside loops, conditions, or nested functions.
+
+`xs.reduce(useConact)` will not work by breaking the same rule.
+
 ### `useGenerator`
 
 Treats a generator as a stream and collects values from it.

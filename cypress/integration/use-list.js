@@ -8,10 +8,10 @@ beforeEach(() => fixScope(ReactDOM)(window));
 describe('`useList`', () => {
   it('should yields values of an array', () => {
     function Test() {
-      const as = useMemo(() => [0, 1, 2], []);
+      const as = useMemo(() => [4, 3, 2, 1, 0], []);
       const x = useList(as);
 
-      expect(x).to.be.oneOf([0, 1, 2]);
+      expect(x).to.be.oneOf([4, 3, 2, 1, 0]);
 
       return null;
     }
