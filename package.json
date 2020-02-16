@@ -1,5 +1,5 @@
 {
-  "name": "@caasi/hooks",
+  "name": "@hereticaljs/hooks",
   "version": "1.7.5",
   "description": "Some useful React Hooks",
   "main": "dist/index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/caasi/hooks.git"
+    "url": "git+ssh://git@github.com/HereticalJS/hooks.git"
   },
   "keywords": [
     "React",
@@ -24,9 +24,9 @@
   "author": "caasi Huang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/caasi/hooks/issues"
+    "url": "https://github.com/HereticalJS/hooks/issues"
   },
-  "homepage": "https://github.com/caasi/hooks#readme",
+  "homepage": "https://github.com/HereticalJS/hooks#readme",
   "devDependencies": {
     "@babel/cli": "^7.7.4",
     "@babel/core": "^7.7.4",

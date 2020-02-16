@@ -1,14 +1,14 @@
-[![NPM Status](https://img.shields.io/npm/v/@caasi/hooks.svg?style=flat)](https://www.npmjs.com/package/@caasi/hooks)
-[![Build Status](https://travis-ci.org/caasi/hooks.svg?branch=master)](https://travis-ci.org/caasi/hooks)
+[![NPM Status](https://img.shields.io/npm/v/@hereticaljs/hooks.svg?style=flat)](https://www.npmjs.com/package/@hereticaljs/hooks)
+[![Build Status](https://travis-ci.org/HereticalJS/hooks.svg?branch=master)](https://travis-ci.org/HereticalJS/hooks)
 
-# @caasi/hooks
+# @hereticaljs/hooks
 
 Some heretical React Hooks.
 
 ## Install
 
 ```
-npm install @caasi/hooks
+npm install @hereticaljs/hooks
 ```
 
 ## Core hooks
