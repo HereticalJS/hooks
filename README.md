@@ -219,6 +219,7 @@ useEffect(() => {
 * [x] implement `useFold`
   * [x] implement `useFilter`
 * [x] stop using `undefined` as a reset signal in `useSpace`
+* [ ] implement [`useObservable`][useObservable]
 * [ ] test more hooks
   * [ ] `useConcat`
   * [ ] `useImageData`
@@ -230,3 +231,5 @@ useEffect(() => {
   * [ ] `useRange`
   * [x] `useWebSocket`
 * [ ] rewrite everything in TypeScript
+
+[useObservable]: https://gist.github.com/caasi/6977b83ba882a7c9f58b07739bcaff50
