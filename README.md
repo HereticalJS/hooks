@@ -219,7 +219,7 @@ useEffect(() => {
 * [x] implement `useFold`
   * [x] implement `useFilter`
 * [x] stop using `undefined` as a reset signal in `useSpace`
-* [ ] implement [`useObservable`][useObservable]
+* [x] implement [`useObservable`][useObservable]
 * [ ] test more hooks
   * [ ] `useConcat`
   * [ ] `useImageData`
