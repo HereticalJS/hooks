@@ -107,6 +107,17 @@ const ab = useMaybe(
 );
 ```
 
+### `useObservable`
+
+Yields values from a given [RxJS][RxJS] `Observable`.
+
+```javascript
+const xs = useMemo(() => of(0, 1, 2), []);
+const x = useObservable(xs, 0); // yields 0, 1 and 2
+```
+
+[RxJS]: https://github.com/ReactiveX/rxjs
+
 ## IO hooks
 
 ### `useTime`
@@ -213,13 +224,6 @@ useEffect(() => {
 
 ## ToDo
 
-* [x] test custom hooks with [cypress](https://www.cypress.io/)
-* [x] add `useDefined` to keep the previous defined value
-* [x] remove `.github`
-* [x] implement `useFold`
-  * [x] implement `useFilter`
-* [x] stop using `undefined` as a reset signal in `useSpace`
-* [x] implement [`useObservable`][useObservable]
 * [ ] test more hooks
   * [ ] `useConcat`
   * [ ] `useImageData`
@@ -229,7 +233,4 @@ useEffect(() => {
   * [ ] `useObjectURL`
   * [ ] `useTime`
   * [ ] `useRange`
-  * [x] `useWebSocket`
 * [ ] rewrite everything in TypeScript
-
-[useObservable]: https://gist.github.com/caasi/6977b83ba882a7c9f58b07739bcaff50
