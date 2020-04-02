@@ -1,6 +1,6 @@
 {
   "name": "@hereticaljs/hooks",
-  "version": "1.7.9",
+  "version": "1.7.10",
   "description": "Some useful React Hooks",
   "main": "dist/index.js",
   "scripts": {
